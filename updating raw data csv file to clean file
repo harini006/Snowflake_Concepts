@@ -1,0 +1,113 @@
+--create db--
+create database retail_db;
+use database retail_db;
+
+--create schema---
+create schema raw;
+create schema processed;
+create schema analytics;
+---
+use schema raw
+
+--Create FILE format
+CREATE OR REPLACE FILE FORMAT csv_file
+  TYPE = 'CSV'
+  FIELD_DELIMITER = ','
+  FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+  SKIP_HEADER = 1;
+--field delimiter is used to separate the values
+--A field (column value) in the CSV file may optionally be surrounded by double quotes (").Snowflake will correctly read the data whether the quotes are present or not.
+
+--==Create Stage--> STAGE IS USED to upload the file from external or internal===--
+CREATE STAGE retail_stage
+FILE_FORMAT = csv_file;
+
+--click on home page and upload the file to stage area
+--create a empty table along with schema;
+
+CREATE TABLE raw.sales_raw (
+    order_id STRING,
+    product STRING,
+    quantity NUMBER,
+    price NUMBER,
+    order_date DATE,
+    region STRING
+);
+
+--now load that csv file into this empty table
+
+copy into raw.sales_raw
+from @retail_stage
+file_format =csv_file
+
+--check and execute the table and find records are inserted
+
+select * from raw.sales_raw
+
+--Modify to cleaned records
+CREATE TABLE processed.sales_clean AS
+SELECT 
+    order_id,
+    product,
+    quantity,
+    price,
+    quantity * price AS total_amount,
+    order_date,
+    region
+FROM raw.sales_raw
+WHERE quantity > 0 AND price > 0;
+
+-----------       
+CREATE TABLE analytics.sales_summary (
+    region STRING,
+    total_sales NUMBER,
+    total_orders NUMBER
+);
+
+--This captures:New inserts,Updates,Deletes
+
+CREATE STREAM sales_stream
+ON TABLE raw.sales_raw;
+
+--create tasks
+CREATE or replace TASK sales_task
+WAREHOUSE = COMPUTE_WH
+SCHEDULE = '5 MINUTE'
+AS
+INSERT INTO analytics.sales_summary
+SELECT 
+    region,
+    SUM(quantity * price),
+    COUNT(order_id)
+FROM sales_stream
+GROUP BY region;
+
+
+--Start tasks
+ALTER TASK sales_task RESUME;
+
+
+INSERT INTO raw.sales_raw VALUES
+('101', 'Laptop', 2, 50000, CURRENT_DATE, 'India'),
+('102', 'Phone', 1, 20000, CURRENT_DATE, 'India');
+
+
+select * from raw.sales_raw
+
+UPDATE raw.sales_raw
+SET price = 6000
+WHERE order_id = '101';
+
+SELECT *
+FROM sales_stream
+
+
+CREATE OR REPLACE STREAM sales_stream ON TABLE raw.sales_raw;
+
+UPDATE raw.sales_raw
+SET price = price + 1000
+WHERE order_id = '101';
+
+SELECT * FROM sales_stream;
+
+SHOW STREAMS;
