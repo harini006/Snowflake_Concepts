@@ -1,0 +1,2 @@
+1.Can Snowflake ingest directly from HTTP URLs?”
+Ans:No, Snowflake does not support direct ingestion from HTTP URLs. Data must be staged either internally or through supported external storage like S3, Azure Blob, or GCS.
