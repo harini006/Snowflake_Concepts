@@ -1,1 +1,209 @@
 Snowflake Notebook is mixture of SQL editor,Documentation and Data analysis tool
+🧠 Snowflake Notebook MCQ Practice (25 Questions)
+
+
+1.What is the primary purpose of Snowflake Notebooks?
+A. Data storage
+B. Interactive data analysis
+C. User authentication
+D. Query optimization
+
+👉 ✅ Answer: B
+
+2.Which languages are supported in Snowflake Notebooks?
+A. SQL only
+B. Python only
+C. SQL and Python
+D. Java and Scala
+
+👉 ✅ Answer: C
+
+3.What feature distinguishes Notebooks from Worksheets?
+A. SQL execution
+B. Table creation
+C. Markdown support
+D. Query history
+
+👉 ✅ Answer: C
+
+4.Snowflake Notebooks are most similar to:
+A. Excel
+B. Jupyter Notebook
+C. Power BI
+D. Tableau
+
+👉 ✅ Answer: B
+
+🔹 Architecture & Compute
+5.What compute resource is used to execute SQL in notebooks?
+A. Compute pool
+B. Virtual warehouse
+C. Storage layer
+D. Metadata engine
+
+👉 ✅ Answer: B
+
+6.Python execution in notebooks is powered by:
+A. Spark
+B. Snowpark
+C. Hadoop
+D. Kubernetes
+
+👉 ✅ Answer: B
+
+7.Advanced workloads in notebooks may require:
+A. External database
+B. Compute pool
+C. Local machine
+D. Browser cache
+
+👉 ✅ Answer: B
+
+8.What happens if a warehouse is suspended?
+A. Notebook crashes
+B. SQL queries fail
+C. Python stops working
+D. Data is deleted
+
+👉 ✅ Answer: B
+
+🔹 Functionality
+9.What type of content can be added to notebooks?
+A. SQL only
+B. Python only
+C. Markdown only
+D. SQL, Python, Markdown
+
+👉 ✅ Answer: D
+
+10.Which use case best fits notebooks?
+A. User management
+B. Data exploration
+C. Billing setup
+D. Role assignment
+
+👉 ✅ Answer: B
+
+11.What is a cell in a notebook?
+A. Database table
+B. Execution unit
+C. User session
+D. Storage block
+
+👉 ✅ Answer: B
+
+12.Can notebooks be used for machine learning?
+A. No
+B. Yes
+C. Only with external tools
+D. Only in enterprise edition
+
+👉 ✅ Answer: B
+
+🔹 Integration
+13.Which framework enables Python operations in Snowflake?
+A. TensorFlow
+B. Snowpark
+C. Pandas
+D. NumPy
+
+👉 ✅ Answer: B
+
+14.What UI framework can be integrated within notebooks?
+A. Flask
+B. Django
+C. Streamlit
+D. Angular
+
+👉 ✅ Answer: C
+
+15.Where does notebook data reside?
+A. Local machine
+B. Snowflake storage
+C. Browser cache
+D. External API
+
+👉 ✅ Answer: B
+
+🔹 Comparison Questions (IMPORTANT)
+16.Worksheet vs Notebook: Which supports Python?
+A. Worksheet
+B. Notebook
+C. Both
+D. Neither
+
+👉 ✅ Answer: B
+
+17.Snowpark vs Notebook: What is Snowpark?
+A. UI tool
+B. API framework
+C. Visualization tool
+D. Storage engine
+
+👉 ✅ Answer: B
+
+18.Streamlit vs Notebook: Streamlit is used for:
+A. Storage
+B. UI apps
+C. Query execution
+D. Security
+
+👉 ✅ Answer: B
+
+🔹 Practical Scenarios
+19.You want to explore data and build a model quickly. What should you use?
+A. Worksheet
+B. Notebook
+C. Role manager
+D. Warehouse
+
+👉 ✅ Answer: B
+
+20.You need only SQL queries. Best option?
+A. Notebook
+B. Worksheet
+C. Streamlit
+D. Snowpark
+
+👉 ✅ Answer: B
+
+21.A notebook cell fails due to missing compute. What is likely the issue?
+A. Storage full
+B. Warehouse not running
+C. Network issue
+D. Role mismatch
+
+👉 ✅ Answer: B
+
+🔹 Advanced Concepts
+22.What enables large-scale ML in notebooks?
+A. Metadata layer
+B. Compute pool
+C. Micro-partitions
+D. Clustering
+
+👉 ✅ Answer: B
+
+23.Which feature supports reproducibility in notebooks?
+A. Roles
+B. Cell execution order
+C. Warehouses
+D. Tables
+
+👉 ✅ Answer: B
+
+24.What is the benefit of Markdown in notebooks?
+A. Faster queries
+B. Documentation
+C. Storage optimization
+D. Security
+
+👉 ✅ Answer: B
+
+25.Which scenario requires a compute pool instead of warehouse?
+A. Simple SELECT query
+B. Python ML workload
+C. Table creation
+D. Role assignment
+
+👉 ✅ Answer: B
